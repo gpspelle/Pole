@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+	
+</head>
+	<body>
+		<script>
+			var text = '';
+			var w = screen.width; var h = screen.height;
+			var DPR = window.devicePixelRatio;
+			w = Math.round(DPR * w);
+			h = Math.round(DPR * h);
+			//jQuery(function($, undefined) {
+			$('body').terminal(function(command) {
+				if (command !== '') {
+					try {
+					    	var result = 'leleco'.localeCompare(command);
+						if (result !== 1) {
+							this.echo(new String("Leleco eh o poder. Foco no padero"));
+						} else {
+							var error = window.eval(command);
+						}
+					} catch(e) {
+						this.error(new String(e));
+					}
+				} else {
+					this.echo('');
+				}
+			}, {
+				greetings: 'Welcome to the LFDBG (La Fabrique Debugger) main platform',
+				name: 'js_demo',
+				height: 2*w/5,
+				prompt: 'js> '
+			});
+</script>
+	</body>
+</html>
